@@ -5,7 +5,8 @@
   "scripts": {
     "start": "concurrently npm:server npm:client",
     "client": "parcel watch src/client/index.html",
-    "server": "nodemon --watch src/server src/server/server.js"
+    "server": "nodemon --watch src/server src/server/server.js",
+    "format": "prettier --write src"
   },
   "repository": {
     "type": "git",
