@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fetch = require("node-fetch");
+const ws = require("ws");
 const userApi = require("./routes/userApi");
 const bodyParser = require("body-parser");
 
@@ -43,6 +44,18 @@ app.get("/api/profile", async (req, res) => {
   return res.json(req.userinfo);
 });
 
+// Setting up WebSockets for chat
+const sockets = [];
+const wsServer = new ws.Server({ noServer: true });
+wsServer.on("connection", (socket) => {
+  sockets.push(socket);
+  socket.on("message", (message) => {
+    for (const socket of sockets) {
+      socket.send("From server: " + message);
+    }
+  });
+});
+
 // Serving app from right path
 app.use(express.static(path.resolve(__dirname, "..", "..", "dist")));
 app.use((req, res, next) => {
@@ -54,6 +67,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.listen(3000, () => {
-  console.log("Started on http://localhost:3000");
+const server = app.listen(3000, () => {
+  console.log(`Started on http://localhost:${server.address().port}`);
+
+  server.on("upgrade", (req, res, head) => {
+    wsServer.handleUpgrade(req, res, head, (socket) => {
+      wsServer.emit("connection", socket, req);
+    });
+  });
 });

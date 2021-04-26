@@ -7,6 +7,7 @@ import { ProfilePage } from "./ProfilePage";
 import { LoginCallbackPage } from "./LoginCallbackPage";
 import { useLocalStorage } from "./lib/useLocalStorage";
 import { UserPage } from "./UserPage";
+import { ChatPage } from "./ChatPage";
 
 export function Application() {
   const [access_token, setAccess_token] = useLocalStorage("access_token");
@@ -48,15 +49,21 @@ export function Application() {
         <Route path={"/user"}>
           <UserPage />
         </Route>
+        <Route path={"/chat"}>
+          <ChatPage />
+        </Route>
 
         <Route exact path={"/"}>
-          <h1>Welcome to the chatting page</h1>
+          <h1>Welcome</h1>
           <ul>
             <li>
               <Link to={"/profile"}>My Profile</Link>
             </li>
             <li>
               <Link to={"/user"}>Users</Link>
+            </li>
+            <li>
+              <Link to={"/chat"}>Chat</Link>
             </li>
             <li>
               <Link to={"/login"}>Login</Link>
