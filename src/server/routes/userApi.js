@@ -14,13 +14,13 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("", (req, res) => {
-  console.log(req.body);
   const { firstName, lastName, email } = req.body;
   users.push({
     firstName: firstName,
     lastName: lastName,
     email: email,
     id: users.length + 1,
+    messages: [],
   });
   res.status(200).end();
 });
@@ -28,11 +28,9 @@ router.post("", (req, res) => {
 router.post("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const userIndex = users.findIndex((u) => u.id === id);
-  console.log(userIndex);
-  const { message } = req.body;
-  console.log(req.body);
+  const { messages } = req.body;
 
-  users[userIndex].message = [message];
+  users[userIndex].messages.push(messages);
   res.status(201).end();
 });
 

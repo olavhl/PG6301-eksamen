@@ -6,7 +6,7 @@ import { UserCreateUserButton } from "./components/UserCreateUserButton";
 import { useParams } from "react-router";
 
 export function UserMessage({ userApi }) {
-  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState("");
   const { id } = useParams();
   const { data: user, error, loading, reload } = useLoading(
     async () => await userApi.getUser(id),
@@ -28,7 +28,9 @@ export function UserMessage({ userApi }) {
 
   async function handleSendMessage(e) {
     e.preventDefault();
-    await userApi.sendMessage(id, message);
+    await userApi.sendMessage(id, messages);
+    // Refreshing site to be able to see all messages
+    window.location.reload(false);
   }
 
   return (
@@ -39,19 +41,19 @@ export function UserMessage({ userApi }) {
         </h1>
       )}
 
-      {!user.message && (
+      {!user.messages && (
         <div>
           <p>You dont have any messages</p> <p>Write you first now!</p>
         </div>
       )}
 
-      <p>{user.message && user.message[0]}</p>
+      {user.messages && user.messages.map((message) => <p>You: {message}</p>)}
 
       <form onSubmit={handleSendMessage}>
         <input
           type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
+          value={messages}
+          onChange={(e) => setMessages(e.target.value)}
         />
         <button>Send</button>
       </form>

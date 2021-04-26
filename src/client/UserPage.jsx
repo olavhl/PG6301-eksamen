@@ -12,8 +12,8 @@ export function UserPage() {
     getUser: async (id) => await fetchJSON(`/api/user/${id}`),
     createUser: async ({ firstName, lastName, email }) =>
       await postJSON("/api/user", { firstName, lastName, email }),
-    sendMessage: async (id, message) =>
-      await postJSON(`/api/user/${id}`, { message }),
+    sendMessage: async (id, messages) =>
+      await postJSON(`/api/user/${id}`, { messages }),
   };
 
   return (
