@@ -8,6 +8,13 @@ import { ProfilePage } from "./ProfilePage";
 export function Application() {
   const [access_token, setAccess_token] = useState();
 
+  const identityProvider = {
+    discoveryURL:
+      "https://accounts.google.com/.well-known/openid-configuration",
+    client_id:
+      "394650575809-8l303lj4fcg9k92stpp37ie2hb2qkngv.apps.googleusercontent.com",
+  };
+
   async function loadProfile() {
     return fetchJSON("/api/profile", {
       ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
@@ -23,7 +30,7 @@ export function Application() {
       </header>
       <Switch>
         <Route exact path={"/login"}>
-          <LoginPage />
+          <LoginPage identityProvider={identityProvider} />
         </Route>
         <Route path={"/login/callback"}>
           <h1>Login Callback</h1>
