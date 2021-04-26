@@ -9,10 +9,16 @@ export function LoginCallbackPage({ onAccessToken }) {
   const history = useHistory();
 
   useEffect(() => {
-    const { access_token } = hash;
+    const loginState = JSON.parse(sessionStorage.getItem("loginState"));
+    const { access_token, state } = hash;
+    if (state !== loginState.state) {
+      alert("You shouldnt have access to this..");
+      return;
+    }
+
     onAccessToken(access_token);
     history.push("/");
-  }, []);
+  }, [hash]);
 
   return <h1>Login Callback</h1>;
 }
