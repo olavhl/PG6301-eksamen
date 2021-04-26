@@ -1,15 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export function ChatPage() {
-  // const ws = new WebSocket();
-  // ws.onmessage;
-
   const [chat, setChat] = useState([]);
   const [message, setMessage] = useState("");
+  const [ws, setWs] = useState();
+
+  useEffect(() => {
+    const ws = new WebSocket("ws://localhost:3000/chat");
+    ws.onopen = (event) => {
+      console.log("opened", event);
+    };
+
+    ws.onmessage = (event) => {
+      console.log("message", event);
+      setChat((chat) => [...chat, event.data]);
+    };
+
+    ws.onclose = (event) => {
+      console.log("close", event);
+    };
+
+    setWs(ws);
+  }, []);
 
   function handleSubmitChat(e) {
     e.preventDefault();
-    setChat([...chat, message]);
+    ws.send(message);
     setMessage("");
   }
 
