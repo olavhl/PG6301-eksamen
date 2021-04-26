@@ -18,6 +18,7 @@ export function UserListPage({ userApi }) {
   }
   console.log(users.length);
 
+  // Checking if there are any users in the UserArray in server
   if (users.length === 0) {
     return (
       <div>
