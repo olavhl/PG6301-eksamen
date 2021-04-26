@@ -1,8 +1,15 @@
 import React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Route, Switch } from "react-router";
+import { LoginPage } from "./LoginPage";
+import { fetchJSON } from "./lib/http";
+import { ProfilePage } from "./ProfilePage";
 
 export function Application() {
+  async function loadProfile() {
+    return fetchJSON("/api/profile");
+  }
+
   return (
     <BrowserRouter>
       <header>
@@ -12,14 +19,20 @@ export function Application() {
       </header>
       <Switch>
         <Route exact path={"/login"}>
-          <h1>Login</h1>
+          <LoginPage />
         </Route>
         <Route path={"/login/callback"}>
           <h1>Login Callback</h1>
         </Route>
+        <Route path={"/profile"}>
+          <ProfilePage loadProfile={loadProfile} />
+        </Route>
         <Route exact path={"/"}>
           <h1>Welcome to the chatting page</h1>
           <ul>
+            <li>
+              <Link to={"/profile"}>Profile</Link>
+            </li>
             <li>
               <Link to={"/login"}>Login</Link>
             </li>
