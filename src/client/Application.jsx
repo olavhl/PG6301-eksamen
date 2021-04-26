@@ -4,6 +4,7 @@ import { Route, Switch } from "react-router";
 import { LoginPage } from "./LoginPage";
 import { fetchJSON } from "./lib/http";
 import { ProfilePage } from "./ProfilePage";
+import { LoginCallbackPage } from "./LoginCallbackPage";
 
 export function Application() {
   const [access_token, setAccess_token] = useState();
@@ -33,7 +34,9 @@ export function Application() {
           <LoginPage identityProvider={identityProvider} />
         </Route>
         <Route path={"/login/callback"}>
-          <h1>Login Callback</h1>
+          <LoginCallbackPage
+            onAccessToken={(access_token) => setAccess_token(access_token)}
+          />
         </Route>
         <Route path={"/profile"}>
           <ProfilePage loadProfile={loadProfile} />
