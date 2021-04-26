@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Route, Switch } from "react-router";
 import { LoginPage } from "./LoginPage";
 import { fetchJSON } from "./lib/http";
 import { ProfilePage } from "./ProfilePage";
 import { LoginCallbackPage } from "./LoginCallbackPage";
+import { useLocalStorage } from "./lib/useLocalStorage";
 
 export function Application() {
-  const [access_token, setAccess_token] = useState();
+  const [access_token, setAccess_token] = useLocalStorage("access_token");
 
   const identityProvider = {
     discoveryURL:
