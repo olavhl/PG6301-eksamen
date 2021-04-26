@@ -11,8 +11,9 @@ export function LoginCallbackPage({ onAccessToken }) {
   useEffect(() => {
     const loginState = JSON.parse(sessionStorage.getItem("loginState"));
     const { access_token, state } = hash;
+
     if (state !== loginState.state) {
-      alert("You shouldnt have access to this..");
+      alert("You shouldn't have access to this..");
       return;
     }
 
