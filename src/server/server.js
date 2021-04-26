@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const fetch = require("node-fetch");
+const userApi = require("./routes/userApi");
 
 const app = express();
 const discoveryURL =
@@ -28,11 +29,7 @@ app.use(async (req, res, next) => {
   next();
 });
 
-const users = [];
-
-app.get("/api/user", (req, res) => {
-  res.json(users);
-});
+app.use("/api/user", userApi);
 
 app.get("/api/profile", async (req, res) => {
   if (!req.userinfo) {
