@@ -16,5 +16,10 @@ export function ProfilePage({ loadProfile }) {
     return <LoadingView />;
   }
 
-  return <h1>Profile Page</h1>;
+  return (
+    <div>
+      <h1>Profile Page</h1>
+      {data.username}
+    </div>
+  );
 }

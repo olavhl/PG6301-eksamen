@@ -3,8 +3,18 @@ const path = require("path");
 
 const app = express();
 
-app.use(express.static(path.resolve(__dirname, "..", "..", "dist")));
+app.get("/api/profile", (req, res) => {
+  const Authorization = req.header("Authorization");
+  if (!Authorization) {
+    return res.send(401);
+  }
+  return res.json({
+    username: "Bigboy",
+  });
+});
 
+// Serving app from right path
+app.use(express.static(path.resolve(__dirname, "..", "..", "dist")));
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
     return res.sendFile(

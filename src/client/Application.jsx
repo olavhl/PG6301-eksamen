@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Route, Switch } from "react-router";
 import { LoginPage } from "./LoginPage";
@@ -6,8 +6,12 @@ import { fetchJSON } from "./lib/http";
 import { ProfilePage } from "./ProfilePage";
 
 export function Application() {
+  const [access_token, setAccess_token] = useState();
+
   async function loadProfile() {
-    return fetchJSON("/api/profile");
+    return fetchJSON("/api/profile", {
+      ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
+    });
   }
 
   return (
