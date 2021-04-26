@@ -8,18 +8,18 @@ export function ProfilePage({ loadProfile }) {
     async () => await loadProfile()
   );
 
-  if (error) {
-    return <ErrorView error={error} reload={reload} />;
+  if (loading) {
+    return <LoadingView />;
   }
 
-  if (loading || !data) {
-    return <LoadingView />;
+  if (error) {
+    return <ErrorView error={error} reload={reload} />;
   }
 
   return (
     <div>
       <h1>Profile Page</h1>
-      {data.username}
+      {data.name}
     </div>
   );
 }

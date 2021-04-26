@@ -18,7 +18,9 @@ export function Application() {
 
   async function loadProfile() {
     return fetchJSON("/api/profile", {
-      ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
+      headers: {
+        ...(access_token ? { Authorization: `Bearer ${access_token}` } : {}),
+      },
     });
   }
 
