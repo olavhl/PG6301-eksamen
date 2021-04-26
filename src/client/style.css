@@ -1,0 +1,33 @@
+.chat {
+    margin: auto;
+    height: 70vh;
+    width: 30vw;
+    background: cadetblue;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.chat header {
+    background: #205555;
+    padding: 10px;
+    text-align: center;
+}
+
+.chat main {
+    padding-left: 15px;
+    overflow-y: scroll;
+    font-size: 20px;
+}
+
+.chat footer form {
+    display: flex;
+    align-items: stretch;
+}
+
+.chat footer form input {
+    flex: 1;
+    height: 30px;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
