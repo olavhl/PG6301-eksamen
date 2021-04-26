@@ -31,3 +31,9 @@
     padding-left: 10px;
 }
 
+/* Feedback */
+.feedback {
+    color: red;
+    font-weight: bold;
+}
+

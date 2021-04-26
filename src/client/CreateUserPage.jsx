@@ -6,11 +6,21 @@ export function CreateUserPage({ userApi }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  // Feedback
+  const [feedBack, setFeedBack] = useState("");
 
   const history = useHistory();
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    if (firstName === "" || lastName === "" || email === "") {
+      setFeedBack(
+        "You need to implement First and Last name, as well as email"
+      );
+      return;
+    }
+
     await userApi.createUser({ firstName, lastName, email });
     history.push("/user/list");
   }
@@ -32,6 +42,8 @@ export function CreateUserPage({ userApi }) {
         <InputField value={email} label={"Email"} onChangeValue={setEmail} />
         <button>Submit</button>
       </form>
+      <br />
+      {feedBack && <div className={"feedback"}>{feedBack}</div>}
     </div>
   );
 }

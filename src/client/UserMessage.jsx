@@ -7,6 +7,9 @@ import { useParams } from "react-router";
 
 export function UserMessage({ userApi }) {
   const [messages, setMessages] = useState("");
+  // Feedback
+  const [feedBack, setFeedBack] = useState("");
+
   const { id } = useParams();
   const { data: user, error, loading, reload } = useLoading(
     async () => await userApi.getUser(id),
@@ -28,6 +31,12 @@ export function UserMessage({ userApi }) {
 
   async function handleSendMessage(e) {
     e.preventDefault();
+
+    if (messages === "") {
+      setFeedBack(`Write a message to ${user.firstName}`);
+      return;
+    }
+
     await userApi.sendMessage(id, messages);
     // Refreshing site to be able to see all messages
     window.location.reload(false);
@@ -54,6 +63,8 @@ export function UserMessage({ userApi }) {
         />
         <button>Send</button>
       </form>
+      <br />
+      {feedBack && <div className={"feedback"}>{feedBack}</div>}
     </div>
   );
 }
