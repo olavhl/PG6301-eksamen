@@ -5,3 +5,13 @@ export async function fetchJSON(url, options = {}) {
   }
   return await res.json();
 }
+
+export async function postJSON(url, payload, method = "POST") {
+  return await fetch(url, {
+    method: method,
+    body: JSON.stringify(payload),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+}

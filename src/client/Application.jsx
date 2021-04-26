@@ -48,6 +48,7 @@ export function Application() {
         <Route path={"/user"}>
           <UserPage />
         </Route>
+
         <Route exact path={"/"}>
           <h1>Welcome to the chatting page</h1>
           <ul>

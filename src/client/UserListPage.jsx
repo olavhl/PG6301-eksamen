@@ -16,7 +16,6 @@ export function UserListPage({ userApi }) {
   if (loading) {
     return <LoadingView />;
   }
-  console.log(users.length);
 
   // Checking if there are any users in the UserArray in server
   if (users.length === 0) {
@@ -30,5 +29,17 @@ export function UserListPage({ userApi }) {
     );
   }
 
-  return <h1>All Users</h1>;
+  return (
+    <div>
+      <h1>All Users</h1>
+      {users?.map(({ firstName, lastName, email, id }) => (
+        <div key={`${firstName}__${id}`}>
+          <p>Firstname: {firstName}</p>
+          <p>Lastname: {lastName}</p>
+          <p>Email: {email}</p>
+          <br />
+        </div>
+      ))}
+    </div>
+  );
 }

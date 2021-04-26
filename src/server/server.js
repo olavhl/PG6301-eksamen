@@ -2,10 +2,13 @@ const express = require("express");
 const path = require("path");
 const fetch = require("node-fetch");
 const userApi = require("./routes/userApi");
+const bodyParser = require("body-parser");
 
 const app = express();
 const discoveryURL =
   "https://accounts.google.com/.well-known/openid-configuration";
+
+app.use(bodyParser.json());
 
 async function fetchJSON(url, options) {
   const res = await fetch(url, options);
@@ -29,6 +32,7 @@ app.use(async (req, res, next) => {
   next();
 });
 
+// TODO: Authorize user before entering
 app.use("/api/user", userApi);
 
 app.get("/api/profile", async (req, res) => {
