@@ -25,4 +25,15 @@ router.post("", (req, res) => {
   res.status(200).end();
 });
 
+router.post("/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const userIndex = users.findIndex((u) => u.id === id);
+  console.log(userIndex);
+  const { message } = req.body;
+  console.log(req.body);
+
+  users[userIndex].message = [message];
+  res.status(201).end();
+});
+
 module.exports = router;
