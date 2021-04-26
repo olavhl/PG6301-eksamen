@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { InputField } from "./components/InputField";
 
-export function CreateUserPage() {
+export function CreateUserPage({ userApi }) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
 
   async function handleSubmit(e) {
     e.preventDefault();
+    await userApi.createUser({ firstName, lastName, email });
   }
 
   return (

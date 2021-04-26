@@ -6,7 +6,7 @@ import { fetchJSON } from "./lib/http";
 import { ProfilePage } from "./ProfilePage";
 import { LoginCallbackPage } from "./LoginCallbackPage";
 import { useLocalStorage } from "./lib/useLocalStorage";
-import { CreateUserPage } from "./CreateUserPage";
+import { UserPage } from "./UserPage";
 
 export function Application() {
   const [access_token, setAccess_token] = useLocalStorage("access_token");
@@ -45,17 +45,18 @@ export function Application() {
         <Route path={"/profile"}>
           <ProfilePage loadProfile={loadProfile} />
         </Route>
-        <Route path={"/createUser"}>
-          <CreateUserPage />
+        <Route path={"/user"}>
+          <UserPage />
         </Route>
+
         <Route exact path={"/"}>
           <h1>Welcome to the chatting page</h1>
           <ul>
             <li>
-              <Link to={"/profile"}>Profile</Link>
+              <Link to={"/profile"}>My Profile</Link>
             </li>
             <li>
-              <Link to={"/createUser"}>Create User</Link>
+              <Link to={"/user"}>Users</Link>
             </li>
             <li>
               <Link to={"/login"}>Login</Link>
