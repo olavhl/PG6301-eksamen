@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { ChatView } from "./ChatView";
 
 export function ChatPage() {
   const [chat, setChat] = useState([]);
-  const [message, setMessage] = useState("");
   const [ws, setWs] = useState();
 
   useEffect(() => {
@@ -23,33 +23,5 @@ export function ChatPage() {
     setWs(ws);
   }, []);
 
-  function handleSubmitChat(e) {
-    e.preventDefault();
-    ws.send(message);
-    setMessage("");
-  }
-
-  return (
-    <div className={"chat"}>
-      <header>
-        <h1>Chat</h1>
-      </header>
-      <main>
-        {chat?.map((message, index) => (
-          <div key={`${message}__${index}`}>{message}</div>
-        ))}
-      </main>
-      <footer>
-        <form onSubmit={handleSubmitChat}>
-          <input
-            type="text"
-            autoFocus={true}
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <button>send</button>
-        </form>
-      </footer>
-    </div>
-  );
+  return <ChatView chat={chat} onSendMessage={(message) => ws.send(message)} />;
 }
