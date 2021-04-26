@@ -41,13 +41,10 @@ export function UserMessage({ userApi }) {
         </h1>
       )}
 
-      {!user.messages && (
-        <div>
-          <p>You dont have any messages</p> <p>Write you first now!</p>
-        </div>
-      )}
-
-      {user.messages && user.messages.map((message) => <p>You: {message}</p>)}
+      {user.messages &&
+        user.messages.map((message, index) => (
+          <p key={`${message}__${index}`}>You: {message}</p>
+        ))}
 
       <form onSubmit={handleSendMessage}>
         <input

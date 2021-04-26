@@ -34,10 +34,10 @@ export function UserListPage({ userApi }) {
           <p>Firstname: {firstName}</p>
           <p>Lastname: {lastName}</p>
           <p>Email: {email}</p>
-          <br />
           <Link to={`/user/${id}/message`}>
             <button>Send Message</button>
           </Link>
+          <br />
         </div>
       ))}
     </div>
