@@ -4,10 +4,12 @@ import { Route, Switch } from "react-router";
 import { CreateUserPage } from "./CreateUserPage";
 import { UserListPage } from "./UserListPage";
 import { fetchJSON, postJSON } from "./lib/http";
+import { UserMessage } from "./UserMessage";
 
 export function UserPage() {
   const userApi = {
     listUsers: async () => await fetchJSON("/api/user"),
+    getUser: async (id) => await fetchJSON(`/api/user/${id}`),
     createUser: async ({ firstName, lastName, email }) =>
       await postJSON("/api/user", { firstName, lastName, email }),
   };
@@ -31,6 +33,9 @@ export function UserPage() {
         </Route>
         <Route path={"/user/create"}>
           <CreateUserPage userApi={userApi} />
+        </Route>
+        <Route path={"/user/:id/message"}>
+          <UserMessage userApi={userApi} />
         </Route>
       </Switch>
     </BrowserRouter>
