@@ -2,8 +2,14 @@ import React from "react";
 import { BrowserRouter, Link } from "react-router-dom";
 import { Route } from "react-router";
 import { CreateUserPage } from "./CreateUserPage";
+import { UserListPage } from "./UserListPage";
+import { fetchJSON } from "./lib/http";
 
 export function UserPage() {
+  const userApi = {
+    listUsers: async () => await fetchJSON("/api/user"),
+  };
+
   return (
     <BrowserRouter>
       <Route exact path={"/user"}>
@@ -18,7 +24,7 @@ export function UserPage() {
         </ul>
       </Route>
       <Route path={"/user/list"}>
-        <h1>All Users</h1>
+        <UserListPage userApi={userApi} />
       </Route>
       <Route path={"/user/create"}>
         <CreateUserPage />

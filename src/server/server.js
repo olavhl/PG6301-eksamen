@@ -28,6 +28,12 @@ app.use(async (req, res, next) => {
   next();
 });
 
+const users = [];
+
+app.get("/api/user", (req, res) => {
+  res.json(users);
+});
+
 app.get("/api/profile", async (req, res) => {
   if (!req.userinfo) {
     return res.send(401);
