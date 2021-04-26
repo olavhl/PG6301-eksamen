@@ -44,10 +44,16 @@ app.get("/api/profile", async (req, res) => {
   return res.json(req.userinfo);
 });
 
+// Setting up WebSockets for chat
+const sockets = [];
 const wsServer = new ws.Server({ noServer: true });
 wsServer.on("connection", (socket) => {
-  console.log("Client connected");
-  socket.on("message", (message) => socket.send("From server: " + message));
+  sockets.push(socket);
+  socket.on("message", (message) => {
+    for (const socket of sockets) {
+      socket.send("From server: " + message);
+    }
+  });
 });
 
 // Serving app from right path
