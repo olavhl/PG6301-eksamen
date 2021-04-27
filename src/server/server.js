@@ -9,8 +9,6 @@ const app = express();
 const discoveryURL =
   "https://accounts.google.com/.well-known/openid-configuration";
 
-app.use(bodyParser.json());
-
 async function fetchJSON(url, options) {
   const res = await fetch(url, options);
   if (!res.ok) {
@@ -33,7 +31,9 @@ app.use(async (req, res, next) => {
   next();
 });
 
-// TODO: Authorize user before entering
+app.use(bodyParser.json());
+// Serving app from right path
+app.use(express.static(path.resolve(__dirname, "..", "..", "dist")));
 app.use("/api/user", userApi);
 
 app.get("/api/profile", async (req, res) => {
@@ -56,8 +56,6 @@ wsServer.on("connection", (socket) => {
   });
 });
 
-// Serving app from right path
-app.use(express.static(path.resolve(__dirname, "..", "..", "dist")));
 app.use((req, res, next) => {
   if (req.method === "GET" && !req.path.startsWith("/api")) {
     return res.sendFile(
