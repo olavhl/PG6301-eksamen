@@ -45,7 +45,10 @@
   "jest": {
     "transform": {
       "^.+\\.(js|jsx)$": "babel-jest"
-    }
+    },
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ]
   },
   "babel": {
     "presets": [
