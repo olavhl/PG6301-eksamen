@@ -52,7 +52,7 @@ describe("user list page", () => {
 
     expect(container.innerHTML).toMatchSnapshot();
     expect(container.querySelector("div").textContent).toEqual(
-      "Something went wrongError: This test should show an Error.."
+      "Something went wrongError: This test should show an Error..Try again"
     );
   });
 

@@ -1,5 +1,5 @@
 import React from "react";
 
 export function LoadingView() {
-  return <div>Loading...</div>;
+  return <div className={"cont"}>Loading...</div>;
 }

@@ -43,7 +43,7 @@ export function UserMessage({ userApi }) {
   }
 
   return (
-    <div>
+    <div className={"cont"}>
       {user && (
         <h1>
           Messages: {user.firstName} {user.lastName}

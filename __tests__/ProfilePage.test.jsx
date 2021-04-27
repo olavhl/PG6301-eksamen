@@ -33,7 +33,7 @@ describe("profile page", () => {
 
     expect(container.innerHTML).toMatchSnapshot();
     expect(container.querySelector("div").textContent).toEqual(
-      "Something went wrongError: Unauthorized"
+      "Something went wrongError: UnauthorizedTry again"
     );
   });
 });

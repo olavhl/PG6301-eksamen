@@ -17,7 +17,7 @@ export function ProfilePage({ loadProfile }) {
   }
 
   return (
-    <div>
+    <div className={"cont"}>
       <h1>Profile Page</h1>
       {user && (
         <div>

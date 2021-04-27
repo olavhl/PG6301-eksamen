@@ -25,7 +25,7 @@ export function LoginPage({ identityProvider }) {
   }
 
   return (
-    <div>
+    <div className={"cont"}>
       <h1>Login</h1>
       <button onClick={handleLogin}>Log in</button>
     </div>

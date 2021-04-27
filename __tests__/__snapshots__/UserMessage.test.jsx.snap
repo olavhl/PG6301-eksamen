@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`User message page loads user 1`] = `"<div><h1>Messages: Ola Nordmann</h1><form><input type=\\"text\\" value=\\"\\"><button>Send</button></form><br></div>"`;
+exports[`User message page loads user 1`] = `"<div class=\\"cont\\"><h1>Messages: Ola Nordmann</h1><form><input type=\\"text\\" value=\\"\\"><button>Send</button></form><br></div>"`;
 
-exports[`User message page show no-user-btn 1`] = `"<div><h3>You dont have any users/friends :(</h3><a href=\\"/user/create\\"><button>Create user</button></a></div>"`;
+exports[`User message page show no-user-btn 1`] = `"<div class=\\"cont\\"><h3>You dont have any users/friends :(</h3><a href=\\"/user/create\\"><button>Create user</button></a></div>"`;
 
-exports[`User message page show user messages feedback 1`] = `"<div><h1>Messages: Ola Nordmann</h1><form><input type=\\"text\\" value=\\"\\"><button>Send</button></form><br><div class=\\"feedback\\">Write a message to Ola</div></div>"`;
+exports[`User message page show user messages feedback 1`] = `"<div class=\\"cont\\"><h1>Messages: Ola Nordmann</h1><form><input type=\\"text\\" value=\\"\\"><button>Send</button></form><br><div class=\\"feedback\\">Write a message to Ola</div></div>"`;

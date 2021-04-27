@@ -40,7 +40,7 @@ describe("User message page", () => {
     const container = await renderToDom(<UserMessage userApi={{ getUser }} />);
 
     expect(container.querySelector("div").textContent).toEqual(
-      "Something went wrongError: Test is failing"
+      "Something went wrongError: Test is failingTry again"
     );
   });
 

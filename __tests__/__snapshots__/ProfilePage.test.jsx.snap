@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`profile page shows error 1`] = `"<div>Something went wrong<br>Error: Unauthorized</div><button>Try again</button>"`;
+exports[`profile page shows error 1`] = `"<div class=\\"cont\\"><div>Something went wrong<br>Error: Unauthorized</div><button>Try again</button></div>"`;
 
-exports[`profile page shows loading-screen 1`] = `"<div>Loading...</div>"`;
+exports[`profile page shows loading-screen 1`] = `"<div class=\\"cont\\">Loading...</div>"`;

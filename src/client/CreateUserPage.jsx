@@ -26,7 +26,7 @@ export function CreateUserPage({ userApi }) {
   }
 
   return (
-    <div>
+    <div className={"cont"}>
       <h1>Create user</h1>
       <form onSubmit={handleSubmit}>
         <InputField

@@ -31,7 +31,7 @@ export function Application() {
     <BrowserRouter>
       <header>
         <Link to={"/"}>
-          <button>Home</button>
+          <button className={"home-btn"}>Home</button>
         </Link>
       </header>
       <Switch>
@@ -54,21 +54,23 @@ export function Application() {
         </Route>
 
         <Route exact path={"/"}>
-          <h1>Welcome</h1>
-          <ul>
-            <li>
-              <Link to={"/profile"}>My Profile</Link>
-            </li>
-            <li>
-              <Link to={"/user"}>Users</Link>
-            </li>
-            <li>
-              <Link to={"/chat"}>Chat</Link>
-            </li>
-            <li>
-              <Link to={"/login"}>Login</Link>
-            </li>
-          </ul>
+          <div className={"cont"}>
+            <h1>Welcome</h1>
+            <ul>
+              <li>
+                <Link to={"/profile"}>My Profile</Link>
+              </li>
+              <li>
+                <Link to={"/user"}>Users</Link>
+              </li>
+              <li>
+                <Link to={"/chat"}>Chat</Link>
+              </li>
+              <li>
+                <Link to={"/login"}>Login</Link>
+              </li>
+            </ul>
+          </div>
         </Route>
         <Route>
           <h1>Page not found...</h1>

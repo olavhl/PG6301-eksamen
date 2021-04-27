@@ -24,7 +24,7 @@ export function UserListPage({ userApi }) {
   }
 
   return (
-    <div>
+    <div className={"cont"}>
       <h1>All Users</h1>
       <Link to={"/user/create"}>
         <button>Create user</button>
