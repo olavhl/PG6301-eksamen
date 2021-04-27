@@ -22,7 +22,7 @@ router.post("", (req, res) => {
     id: users.length + 1,
     messages: [],
   });
-  res.status(200).end();
+  res.status(201).end();
 });
 
 router.post("/:id", (req, res) => {
