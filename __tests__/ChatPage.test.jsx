@@ -10,4 +10,11 @@ describe("chat page", () => {
     expect(container.querySelector("h1").textContent).toEqual("Chat");
     expect(container.innerHTML).toMatchSnapshot();
   });
+
+  it("can show button in form", async () => {
+    const container = document.createElement("div");
+    ReactDOM.render(<ChatPage />, container);
+
+    expect(container.querySelector("form button").textContent).toEqual("Send");
+  });
 });

@@ -19,6 +19,15 @@ export function UserPage() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path={"/user/list"}>
+          <UserListPage userApi={userApi} />
+        </Route>
+        <Route path={"/user/create"}>
+          <CreateUserPage userApi={userApi} />
+        </Route>
+        <Route path={"/user/:id/message"}>
+          <UserMessage userApi={userApi} />
+        </Route>
         <Route exact path={"/user"}>
           <h1>User interactions</h1>
           <ul>
@@ -29,15 +38,6 @@ export function UserPage() {
               <Link to={"/user/create"}>Create User</Link>
             </li>
           </ul>
-        </Route>
-        <Route path={"/user/list"}>
-          <UserListPage userApi={userApi} />
-        </Route>
-        <Route path={"/user/create"}>
-          <CreateUserPage userApi={userApi} />
-        </Route>
-        <Route path={"/user/:id/message"}>
-          <UserMessage userApi={userApi} />
         </Route>
       </Switch>
     </BrowserRouter>

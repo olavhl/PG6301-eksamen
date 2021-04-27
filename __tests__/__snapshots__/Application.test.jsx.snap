@@ -1,7 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`application can navigate to profile 1`] = `"<header><a href=\\"/\\"><button>Home</button></a></header><div>Something went wrong<br>ReferenceError: fetch is not defined</div><button>Try again</button>"`;
-
 exports[`application can navigate to user page 1`] = `"<header><a href=\\"/\\"><button>Home</button></a></header><h1>User interactions</h1><ul><li><a href=\\"/user/list\\">List Users</a></li><li><a href=\\"/user/create\\">Create User</a></li></ul>"`;
 
 exports[`application shows application 1`] = `"<header><a href=\\"/\\"><button>Home</button></a></header><h1>Welcome</h1><ul><li><a href=\\"/profile\\">My Profile</a></li><li><a href=\\"/user\\">Users</a></li><li><a href=\\"/chat\\">Chat</a></li><li><a href=\\"/login\\">Login</a></li></ul>"`;
