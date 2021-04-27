@@ -54,21 +54,27 @@ export function Application() {
         </Route>
 
         <Route exact path={"/"}>
-          <h1>Welcome</h1>
-          <ul>
-            <li>
-              <Link to={"/profile"}>My Profile</Link>
-            </li>
-            <li>
-              <Link to={"/user"}>Users</Link>
-            </li>
-            <li>
-              <Link to={"/chat"}>Chat</Link>
-            </li>
-            <li>
-              <Link to={"/login"}>Login</Link>
-            </li>
-          </ul>
+          {!access_token ? (
+            <LoginPage identityProvider={identityProvider} />
+          ) : (
+            <>
+              <h1>Welcome</h1>
+              <ul>
+                <li>
+                  <Link to={"/profile"}>My Profile</Link>
+                </li>
+                <li>
+                  <Link to={"/user"}>Users</Link>
+                </li>
+                <li>
+                  <Link to={"/chat"}>Chat</Link>
+                </li>
+                <li>
+                  <Link to={"/login"}>Login</Link>
+                </li>
+              </ul>
+            </>
+          )}
         </Route>
         <Route>
           <h1>Page not found...</h1>
