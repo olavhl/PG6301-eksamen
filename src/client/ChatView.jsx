@@ -22,6 +22,7 @@ export function ChatView({ onSendMessage, chat }) {
       <header>
         <h1>Chat</h1>
       </header>
+      {chat.length === 0 && <h3>Write you first message</h3>}
       <main>
         {chat?.map((message, index) => (
           <div key={`${message}__${index}`}>{message}</div>
