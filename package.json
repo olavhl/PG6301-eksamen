@@ -6,7 +6,7 @@
     "start": "concurrently npm:server npm:client",
     "client": "parcel watch src/client/index.html",
     "server": "nodemon --watch src/server src/server/server.js",
-    "test": "jest",
+    "test": "jest --coverage --watchAll",
     "format": "prettier --write src"
   },
   "repository": {
