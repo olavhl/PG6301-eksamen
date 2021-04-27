@@ -8,6 +8,14 @@ app.use(bodyParser.json());
 app.use(userApi);
 
 describe("user api", () => {
+  it("lists no users", async () => {
+    await request(app)
+      .get("/")
+      .then((response) => {
+        expect(response.body).toEqual([]);
+      });
+  });
+
   it("can create new user", async () => {
     await request(app)
       .post("/")
@@ -45,9 +53,9 @@ describe("user api", () => {
       .expect(201);
 
     await request(app)
-      .get("/")
+      .get("/1")
       .then((response) => {
-        expect(response.body.map(({ messages }) => messages === "Hello Ola"));
+        expect(response.body.messages[0]).toEqual(["Hello Ola"]);
       });
   });
 });
