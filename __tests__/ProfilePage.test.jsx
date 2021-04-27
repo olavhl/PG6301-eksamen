@@ -6,7 +6,7 @@ import { act } from "react-dom/test-utils";
 async function renderToDom(component) {
   const container = document.createElement("div");
   document.body.appendChild(container);
-  await act(async () => ReactDOM.render(component, container));
+  await act(async () => await ReactDOM.render(component, container));
 
   return container;
 }
