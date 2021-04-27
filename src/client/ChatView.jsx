@@ -25,7 +25,9 @@ export function ChatView({ onSendMessage, chat }) {
       {chat.length === 0 && <h3>Write you first message</h3>}
       <main>
         {chat?.map((message, index) => (
-          <div key={`${message}__${index}`}>{message}</div>
+          <div key={`${message}__${index}`} className={"message"}>
+            {message}
+          </div>
         ))}
       </main>
       {feedBack && <div className={"feedback"}>{feedBack}</div>}

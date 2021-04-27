@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chat view can show messages 1`] = `
+<div>
+  <div
+    class="chat"
+  >
+    <header>
+      <h1>
+        Chat
+      </h1>
+    </header>
+    <main>
+      <div
+        class="message"
+      >
+        Hello, how are you doing?
+      </div>
+      <div
+        class="message"
+      >
+        I'm good hbu? :)
+      </div>
+    </main>
+    
+    <footer>
+      <form>
+        <input
+          type="text"
+          value=""
+        />
+        <button>
+          Send
+        </button>
+      </form>
+    </footer>
+  </div>
+</div>
+`;

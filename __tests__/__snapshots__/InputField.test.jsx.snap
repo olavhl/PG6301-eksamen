@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`input field show input on dom 1`] = `"<div><label>Name: <input type=\\"text\\" value=\\"\\"></label></div>"`;
