@@ -47,7 +47,8 @@ show the most of my knowledge in the short period of time we had on the exam.
 
 In the Chat-page you can write messages through websockets. Open two, or more browsers, and you can chat
 with yourself, a "friend", or several "friends" (if you consider yourself as a friend). The messages
-sent in the chat is goes through the server.
+sent in the chat is goes through the server. This is the way you can respond to 
+messages in this project.
 
 ## Shortcomings...
 If I'd done this exact project again I'd definitely made some different choices. I started of creating
